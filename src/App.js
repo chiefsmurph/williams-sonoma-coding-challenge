@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import products from './products.json';
+import ProductCard from './ProductCard';
 
 class App extends Component {
+  state = { products: [] };
   componentDidMount() {
     console.log('mount');
-    this.setState({
-      products: products.groups
-    }, () => console.log(this.state));
+    this.setState({ products: products.groups.slice(0, 9) });
   }
   render() {
     return (
@@ -15,8 +15,12 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Williams-Sonoma products</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className="card-container">
+          {
+            this.state.products.map(product =>
+              <ProductCard product={product} />
+            )
+          }
         </p>
       </div>
     );
