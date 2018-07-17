@@ -6,14 +6,20 @@
   position: relative;
 }
 
+.product-card.no-overlay {
+  cursor: pointer;
+}
+
 h2 {
   background-color: rgba(200, 200, 200, 0.7);
-  color: rgb(80,80,80);
-  font-size: 15px;
+  color: rgb(80, 80, 80);
+  font-size: 14px;
   padding: 10px 8px;
   margin: 0;
   text-align: left;
   text-transform: uppercase;
+  height: 55px;
+  box-sizing: border-box;
 }
 
 .price {

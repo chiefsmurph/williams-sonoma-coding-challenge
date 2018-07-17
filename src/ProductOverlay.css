@@ -1,0 +1,78 @@
+.product-overlay, .product-overlay > * {
+  position: absolute;
+}
+
+.product-overlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+a {
+  cursor: pointer;
+}
+
+.close-overlay {
+  right: 5px;
+  font-size: 45px;
+  text-shadow:
+   -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+     1px 1px 0 #FFF;
+}
+
+.close-overlay:hover {
+  text-shadow:
+   -1px -1px 0 yellow,
+    1px -1px 0 yellow,
+    -1px 1px 0 yellow,
+     1px 1px 0 yellow;
+}
+
+
+.arrow {
+  font-size: 45px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  top: 40%;
+}
+.arrow.faded {
+  opacity: 0.4;
+  cursor: default;
+}
+.arrow.lt {
+  left: 0;
+}
+.arrow.rt {
+  right: 0;
+}
+
+.img-bullets {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(64, 64, 64, 0.6);
+  padding: 8px 0 2px;
+}
+
+.circle {
+  border-radius: 50%;
+	width: 15px;
+	height: 15px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0 6px;
+}
+
+.circle.closed {
+  background-color: white;
+}
+
+.circle.open {
+  border: 1px solid white;
+}
