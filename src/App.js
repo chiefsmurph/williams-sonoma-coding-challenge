@@ -7,7 +7,8 @@ class App extends Component {
   state = { products: [] };
   componentDidMount() {
     console.log('mount');
-    this.setState({ products: products.groups.slice(0, 9) });
+    const firstNineProducts = products.groups.slice(0, 9);
+    this.setState({ products: firstNineProducts });
   }
   render() {
     return (
