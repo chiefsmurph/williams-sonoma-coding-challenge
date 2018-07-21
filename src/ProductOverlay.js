@@ -5,6 +5,12 @@ import './ProductOverlay.css';
 const OpenCircle = () => <p className='circle open' />
 const ClosedCircle = () => <p className='circle closed' />
 
+const preloadImage = src => {
+  let image = new Image();
+  image.src = src;
+  return image;
+};
+
 class ProductOverlay extends Component {
   state = { currentlyShowing: 1 };
   incShowing = amt => {
@@ -15,6 +21,11 @@ class ProductOverlay extends Component {
       }));
     };
   };
+  componentDidMount() {
+    // fixes white flash before image show
+    const images = this.props.product.images.map(img => img.href);
+    images.forEach(preloadImage);
+  }
   render() {
     const { product, closeOverlay } = this.props;
     const { currentlyShowing } = this.state;
