@@ -34,7 +34,7 @@ class ProductOverlay extends Component {
     const generateArrowClass = (whichArrow, fadedBoolean) =>
       `arrow ${whichArrow} ${fadedBoolean ? 'faded' : ''}`;
     return (
-      <div className="product-overlay no-select" style={stylesObj}>
+      <div className="product-overlay noselect" style={stylesObj}>
         <a className="close-overlay" onClick={() => closeOverlay()}>✖</a>
         <a className={generateArrowClass('lt', atBeginning)} onClick={this.incShowing(-1)}>{"<"}</a>
         <a className={generateArrowClass('rt', atEnd)} onClick={this.incShowing(1)}>{">"}</a>
