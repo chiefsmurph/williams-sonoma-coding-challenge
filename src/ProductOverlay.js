@@ -5,12 +5,6 @@ import './ProductOverlay.css';
 const OpenCircle = () => <p className='circle open' />
 const ClosedCircle = () => <p className='circle closed' />
 
-const preloadImage = src => {
-  let image = new Image();
-  image.src = src;
-  return image;
-};
-
 class ProductOverlay extends Component {
   state = { currentlyShowing: 1 };
   incShowing = amt => {
@@ -23,8 +17,11 @@ class ProductOverlay extends Component {
   };
   componentDidMount() {
     // fixes white flash before image show
-    const images = this.props.product.images.map(img => img.href);
-    images.forEach(preloadImage);
+    const { product, preloadImage } = this.props;
+    const images = product.images.map(img => img.href);
+    images
+      .slice(1) // first img already pre-loaded from ProductCard before showing overlay
+      .forEach(preloadImage);
   }
   render() {
     const { product, closeOverlay } = this.props;
@@ -38,7 +35,7 @@ class ProductOverlay extends Component {
       `arrow ${whichArrow} ${fadedBoolean ? 'faded' : ''}`;
     return (
       <div className="product-overlay" style={stylesObj}>
-        <a className="close-overlay" onClick={closeOverlay}>✖</a>
+        <a className="close-overlay" onClick={() => closeOverlay()}>✖</a>
         <a className={generateArrowClass('lt', atBeginning)} onClick={this.incShowing(-1)}>{"<"}</a>
         <a className={generateArrowClass('rt', atEnd)} onClick={this.incShowing(1)}>{">"}</a>
         <div className="img-bullets">
